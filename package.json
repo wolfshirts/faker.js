@@ -66,6 +66,5 @@
     "vinyl-transform": "^1.0.0"
   },
   "license": "MIT",
-  "main": "index.js",
-  "dependencies": {}
+  "main": "index.js"
 }
