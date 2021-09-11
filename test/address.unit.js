@@ -302,6 +302,18 @@ describe("address.js", function () {
       assert.ok(faker.address.zipCode.called);
       faker.address.zipCode.restore();
     });
+
+    it("returns a zipcode with a length of five.", function () {
+      // Certain states were returning a zip < 5.
+      faker.locale = "en_US";
+      var states = ["PR", "RI", "MA"];
+      var zipCode1 = faker.address.zipCodeByState(states[0]);
+      assert.ok(zipCode1.length === 5);
+      var zipCode2 = faker.address.zipCodeByState(states[1]);
+      assert.ok(zipCode2.length === 5);
+      var zipCode3 = faker.address.zipCodeByState(states[2]);
+      assert.ok(zipCode3.length === 5);
+    });
   });
 
   describe("latitude()", function () {
